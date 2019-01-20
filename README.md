@@ -1,7 +1,15 @@
 # ProjectGAlarm
-Arduino based alarm system with simple functions.
 
-When i'm done with this project i'll upload the schedule for the build and the code, manuals, and how it works.
-It's gonna be basic, but i'll continue to develop this. 
+This is my first-year entrylevel project.
 
-Stay put.
+A alarm system with basic functions such as:
+-Turn the alarm on and off (ofcourse)
+-Logging
+-SOS code
+-Sensor triggers
+-Siren modes
+-Keypad setup
+-Modes such as shell-alarm/full-alarm
+
+I hope you'll find this project interesting as this is my first big project during my class.
+This will be updated now and then
