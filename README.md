@@ -18,10 +18,6 @@ A alarm system with basic functions such as:
 * Keypad setup
 * Modes such as shell-alarm/full-alarm
 
-I hope you'll find this project interesting as this is my first big project during my class.
-This will be updated now and then
-
-
 # How to setup #
 
 To setup this system with the exact same Arduino build I have you need to:
