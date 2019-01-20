@@ -5,8 +5,7 @@ This will get modulised and cleaned up. Put into folder etc. Thanks for the unde
 
 This is my first-year entrylevel project.
 I've made this over the time of 5 days as assignment with my friend.
-This was a fun experience. I hope you can find use of this simple project. I will continue to develop this
-as time goes on.
+This was a fun experience. I hope you can find use of this simple project. As a base for your project for example. I will continue to develop this as time goes on.
 This is however a working product, so I won't be adding anything in the near future.
 
 I plan to however to get some actual motionsensors and doormagnets working with this.
