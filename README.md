@@ -21,8 +21,7 @@ A alarm system with basic functions such as:
 # How to setup #
 
 To setup this system with the exact same Arduino build I have you need to:
- Markup : *Enter HCentral.cpp.
-* Change the COM port to on line 19.
+* Change the COM port on the HCentral.cpp line 19.
  (You can find this port by for example looking in the Arduino editor)
 * Use the given MAKE-file.
 * Run the program AlarmCentral.exe (This will run on LINUX aswell with the .exe extension)
