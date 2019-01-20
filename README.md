@@ -1,5 +1,8 @@
 # ProjectGAlarm
 
+***DISCLAIMER***
+This will get modulised and cleaned up. Put into folder etc. Thanks for the understanding
+
 This is my first-year entrylevel project.
 I've made this over the time of 5 days as assignment with my friend.
 This was a fun experience. I hope you can find use of this simple project. I will continue to develop this
