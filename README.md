@@ -1,7 +1,7 @@
 # ProjectGAlarm
 
 ***DISCLAIMER***
-This will get modulised and cleaned up. Put into folder etc. Thanks for the understanding
+This will get modulised, UPDATED and cleaned up. Put into folder etc. Thanks for the understanding
 
 This is my first-year entrylevel project.
 I've made this over the time of 5 days as assignment with my friend.
