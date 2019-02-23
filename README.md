@@ -4,6 +4,7 @@
 This will get modulised, UPDATED and cleaned up. Put into folder etc. Thanks for the understanding
 
 This is my first-year entrylevel project.
+The system uses serial communication between a Arduino and the computer of the user to work.
 I've made this over the time of 5 days as assignment with my friend.
 This was a fun experience. I hope you can find use of this simple project. As a base for your project for example. I will continue to develop this as time goes on.
 This is however a working product, so I won't be adding anything in the near future.
