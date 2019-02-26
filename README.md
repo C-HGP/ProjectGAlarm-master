@@ -1,7 +1,18 @@
 # ProjectGAlarm
 
 ***DISCLAIMER***
-This will get modulised, UPDATED and cleaned up. Put into folder etc. Thanks for the understanding
+This will get modulised, ~~UPDATED and cleaned up~~~. Put into folder etc. Thanks for the understanding
+
+***Update 1.1***
+I have now updated this into a more professional style with correct logging of all the events in the system. The system now handles everything correctly. Code has been cleaned up and structured. Next update is to modulise the files.
+
+
+***TODO***
+- [x] Clean up code, make it more readable.
+- [x] Update logging for all events.
+- [ ] Modulise and put code into neat folders for easy access and tinkering.
+- [ ] Update the manuals to a correct state. 
+
 
 This is my first-year entrylevel project.
 The system uses serial communication between a Arduino and the computer of the user to work.
