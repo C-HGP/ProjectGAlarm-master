@@ -1,7 +1,7 @@
 # ProjectGAlarm
 
 ***DISCLAIMER***
-This will get modulised, ~~UPDATED and cleaned up~~. Put into folder etc. Thanks for the understanding
+This will get modulised, ~~UPDATED and cleaned up~~. Put into folder etc.
 
 ***Update 1.1***
 I have now updated this into a more professional style with correct logging of all the events in the system. The system now handles everything correctly. Code has been cleaned up and structured. Next update is to modulise the files.
