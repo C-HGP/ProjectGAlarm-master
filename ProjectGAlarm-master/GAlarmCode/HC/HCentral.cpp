@@ -13,8 +13,8 @@ void eventLogger(std::string msg);
 
 #define POLL 500
 #define DEBUGG
-void Send(std::string msg); 
-void userAuth(std::string finalpin);
+void Send(std::string msg);
+void userAuth(std::string finalpin, char statusKey);
 
 char portNo[] = "\\\\.\\COM6";
 char *port_name = portNo;
@@ -37,15 +37,14 @@ int main()
 
     //out.open("measure.dat", std::ios::app);
     while (arduino.isConnected())
-    {   
-        
+    {
 
         Sleep(POLL);
 
-        int read_result = arduino.readSerialPort(inData, MAX_DATA_LENGTH); 
+        int read_result = arduino.readSerialPort(inData, MAX_DATA_LENGTH);
         if (read_result > 0)
         {
-            
+
             if (inData[0] == 'A')
             {
                 //std::cout << "OK";// Debugg
@@ -53,19 +52,39 @@ int main()
                 std::string finalPin = pin.substr(1); // Removes 'A' from string and sends to userAuth
 
                 //send pin to userAuth
-                userAuth(finalPin); 
+                userAuth(finalPin, 'A');
             }
 
             /*time_t now = time(0);
             char* dt = ctime(&now);
             out << dt << ";" << inData;*/
+
+            if (inData[0] == 'D')
+            {
+                //std::cout << "OK";// Debugg
+                std::string pin(inData);              // Convert char to string
+                std::string finalPin = pin.substr(1); // Removes 'D' from string and sends to userAuth
+
+
+                //send pin to userAuth
+                userAuth(finalPin, 'D');
+            }
+            //If alarm gone off in full
+            if (inData[0] == 'T')
+            {
+                eventLogger("Alarm gone off");   
+            }
+            //If Alarm gone off in shell alarm
+            if (inData[0] == 'Q') 
+            {
+                eventLogger("Alarm gone off");
+            }
         }
 
         Sleep(POLL);
     }
 
     //out.close();
-   
 }
 
 void Send(std::string msg)
@@ -76,8 +95,8 @@ void Send(std::string msg)
 
     bool res = arduino.writeSerialPort(outData, sizeof(outData));
 }
- // Get pin and sends OK to alarmcentral
-void userAuth(std::string finalpin)
+// Get pin and sends OK to alarmcentral
+void userAuth(std::string finalpin, char statusKey)
 {
     bool noMatch = true;
     std::string id;
@@ -108,10 +127,16 @@ void userAuth(std::string finalpin)
 
             //if regular pin is activated
             if (finalpin == pincode)
-            {
-                eventLogger("Alarm deactivated");
+            {   
+                if (statusKey == 'A'){
+                    std::cout << "Welcome home ID: " << id << std::endl;
+                    eventLogger("Alarm deactivated");
+                }
+                if (statusKey == 'D'){
+                    eventLogger("Alarm activated");
+                }
+                
                 noMatch = false;
-                std::cout << "Welcome home ID: " << id << std::endl;
                 break;
             }
             //If Assault pin is activated
@@ -119,20 +144,19 @@ void userAuth(std::string finalpin)
             {
                 eventLogger("Assault PIN Used");
                 noMatch = false;
-                std::cout << "Assault PIN Activated by ID: " << id <<  " Sending officers."  << std::endl;
+                std::cout << "Assault PIN Activated by ID: " << id << " Sending officers." << std::endl;
                 break;
             }
         }
     }
     fin.close();
-    memset(inData,0,sizeof(inData));
+    memset(inData, 0, sizeof(inData));
     if (noMatch == true)
     {
         Send("0");
     }
     Send("1");
 }
-
 
 //Function to log events
 void eventLogger(std::string msg)
@@ -145,32 +169,32 @@ void eventLogger(std::string msg)
 
     inFile.open("system.log");
 
-        if(inFile.is_open())
-        {
-            while(inFile.get(c))
-            {   //Checks rows in file
-                if(c == '\n'){
-                    rows++;
-                }
+    if (inFile.is_open())
+    {
+        while (inFile.get(c))
+        { //Checks rows in file
+            if (c == '\n')
+            {
+                rows++;
             }
-            
-            inFile.close();
         }
-        outFile.open("system.log", std::ofstream::app);
-        outFile << rows+1 << ";" << daysDate << ";" << msg << '\n';
-        outFile.close();
+
+        inFile.close();
+    }
+    outFile.open("system.log", std::ofstream::app);
+    outFile << rows + 1 << ";" << daysDate << ";" << msg << '\n';
+    outFile.close();
 }
 
-
-//Function to get todays date from PC 
+//Function to get todays date from PC
 std::string todaysDate()
 {
-   time_t now = time(0);
-   struct tm tstruct;
-   char       date[80];
-   tstruct = *localtime(&now);
+    time_t now = time(0);
+    struct tm tstruct;
+    char date[80];
+    tstruct = *localtime(&now);
 
-   strftime(date, sizeof(date), "%Y%m%d %X", &tstruct);
+    strftime(date, sizeof(date), "%Y%m%d %X", &tstruct);
 
-   return date;
+    return date;
 }
