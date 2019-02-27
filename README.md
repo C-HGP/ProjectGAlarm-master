@@ -11,7 +11,7 @@ I have now updated this into a more professional style with correct logging of a
 - [x] Clean up code, make it more readable.
 - [x] Update logging for all events.
 - [ ] Modulise and put code into neat folders for easy access and tinkering.
-- [ ] Update the manuals to a correct state. 
+- [ ] Create InDesign manuals for easy use. 
 
 
 This is my first-year entrylevel project.
